@@ -1,4 +1,4 @@
-var cacheName = 'mk-app';
+var cacheName = 'monkero-app';
 var filesToCache = [
   /*'./',*/
   /*'./index.html',*/
