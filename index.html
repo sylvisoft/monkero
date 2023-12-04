@@ -11,7 +11,7 @@
   <meta name="theme-color" content="deeppink"/>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Sylvi App">
+  <meta name="apple-mobile-web-app-title" content="Monkero">
   <meta name="msapplication-TileImage" content="images/hello-icon-144.png">
   <meta name="msapplication-TileColor" content="#FFFFFF">
   
@@ -62,6 +62,13 @@
         </tr>
     </thead>
     <tbody>
+		<tr>
+			<td id="summa3">&#8512;   0</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td id="summa4">&#8512;   0</td>
+		</tr>	    
 		<tr>
 			<td><button onclick="muutaSummaa(0, 20)">+</button> <input type="text" class="summa-kentta" id="luku_r1_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(0, -20)">-</button></td>
 			<td><img id="kuva1" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva1')"></td>
@@ -226,12 +233,14 @@
 	var summa1 = luku_r1_s1 + luku_r2_s1 + luku_r3_s1 + luku_r4_s1 + luku_r5_s1 + luku_r6_s1 + luku_r7_s1 + luku_r8_s1 + luku_r9_s1 + luku_r10_s1 + luku_r11_s1 + luku_r12_s1 + luku_r13_s1 + luku_r14_s1;
 	
 	// Lasketaan summa peluri kakkoselle
-	var summa2 = luku_r1_s1 + luku_r2_s2 + luku_r3_s2 + luku_r4_s2 + luku_r5_s2 + luku_r6_s2 + luku_r7_s2 + luku_r8_s2 + luku_r9_s2 + luku_r10_s2 + luku_r11_s2 + luku_r12_s2 + luku_r13_s2 + luku_r14_s2;
+	var summa2 = luku_r1_s2 + luku_r2_s2 + luku_r3_s2 + luku_r4_s2 + luku_r5_s2 + luku_r6_s2 + luku_r7_s2 + luku_r8_s2 + luku_r9_s2 + luku_r10_s2 + luku_r11_s2 + luku_r12_s2 + luku_r13_s2 + luku_r14_s2;
 
-    // Päivitetään peluri ykkösen summan näyttö
-    document.getElementById("summa1").innerText = "\u2140   " + summa1;
+    	// Päivitetään peluri ykkösen summan näyttö
+    	document.getElementById("summa1").innerText = "\u2140   " + summa1;
+	document.getElementById("summa3").innerText = "\u2140   " + summa1;
 	// Päivitetään peluri kakkosen summan näyttö
-    document.getElementById("summa2").innerText = "\u2140   " + summa2;
+    	document.getElementById("summa2").innerText = "\u2140   " + summa2;
+	document.getElementById("summa4").innerText = "\u2140   " + summa2;
   }
 </script>
 
