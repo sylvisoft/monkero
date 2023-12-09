@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fi">
 <head>
   <meta charset="utf-8">
   <title>Monkero</title>
@@ -46,18 +46,24 @@
 			width: 30px;
 		}
     </style>
-  
 </head>
 <body class="fullscreen">
   <div class="container">
 <img src="monkero1.jpg" alt="Be cool - play Monkero" style="width:200px;height:200px;">
-<br><br>
-<table>
+<br>
+  <details>
+  <input type="text" id="nimi1">
+  <input type="text" id="nimi2">
+  <button onclick="arvoAloittaja()">Arvo aloittaja</button>
+    <summary>Kumpi aloittaa?</summary>
+  </details>
+<br>
+<table id="taulukko">
     <thead>
         <tr>
-            <th colspan="2">Monkero 1</th>
+            <th colspan="2" id="otsikko1">Monkero 1</th>
             <th></th>
-            <th colspan="2">Monkero 2</th>
+            <th colspan="2" id="otsikko2">Monkero 2</th>
         </tr>
     </thead>
     <tbody>
@@ -69,102 +75,102 @@
 			<td id="summa4">&#8512;   0</td>
 		</tr>	    
 		<tr>
-			<td><button onclick="muutaSummaa(0, 20)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r1_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(0, -20)">-</button></td>
-			<td><img id="kuva1" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva1')"></td>
+			<td id="kuva1td1"><button onclick="muutaSummaa(0, 20)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r1_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(0, -20)">-</button></td>
+			<td id="kuva1td2"><img id="kuva1" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva1','kuva1td1','kuva1td2')"></td>
 			<td><b>20</b></td>
-			<td><img id="kuva2" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva2')"></td>
-			<td><button onclick="muutaSummaa(1, 20)">+</button> <input type="text" class="summa-kentta" id="luku_r1_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(1, -20)">-</button></td>
+			<td id="kuva2td1"><img id="kuva2" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva2','kuva2td1','kuva2td2')"></td>
+			<td id="kuva2td2"><button onclick="muutaSummaa(1, 20)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r1_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(1, -20)">-</button></td>
 		</tr>
 		<tr>
-			<td><button onclick="muutaSummaa(2, 19)">+</button> <input type="text" class="summa-kentta" id="luku_r2_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(2, -19)">-</button></td>
-			<td><img id="kuva3" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva3')"></td>
+			<td id="kuva3td1"><button onclick="muutaSummaa(2, 19)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r2_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(2, -19)">-</button></td>
+			<td id="kuva3td2"><img id="kuva3" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva3','kuva3td1','kuva3td2')"></td>
 			<td><b>19</b></td>
-			<td><img id="kuva4" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva4')"></td>
-			<td><button onclick="muutaSummaa(3, 19)">+</button> <input type="text" class="summa-kentta" id="luku_r2_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(3, -19)">-</button></td>
+			<td id="kuva4td1"><img id="kuva4" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva4','kuva4td1','kuva4td2')"></td>
+			<td id="kuva4td2"><button onclick="muutaSummaa(3, 19)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r2_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(3, -19)">-</button></td>
 		</tr>
 		<tr>
-			<td><button onclick="muutaSummaa(4, 18)">+</button> <input type="text" class="summa-kentta" id="luku_r3_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(4, -18)">-</button></td>
-			<td><img id="kuva5" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva5')"></td>
+			<td id="kuva5td1"><button onclick="muutaSummaa(4, 18)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r3_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(4, -18)">-</button></td>
+			<td id="kuva5td2"><img id="kuva5" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva5','kuva5td1','kuva5td2')"></td>
 			<td><b>18</b></td>
-			<td><img id="kuva6" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva6')"></td>
-			<td><button onclick="muutaSummaa(5, 18)">+</button> <input type="text" class="summa-kentta" id="luku_r3_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(5, -18)">-</button></td>
+			<td id="kuva6td1"><img id="kuva6" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva6','kuva6td1','kuva6td2')"></td>
+			<td id="kuva6td2"><button onclick="muutaSummaa(5, 18)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r3_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(5, -18)">-</button></td>
 		</tr>
 		<tr>
-			<td><button onclick="muutaSummaa(6, 17)">+</button> <input type="text" class="summa-kentta" id="luku_r4_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(6, -17)">-</button></td>
-			<td><img id="kuva7" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva7')"></td>
+			<td id="kuva7td1"><button onclick="muutaSummaa(6, 17)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r4_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(6, -17)">-</button></td>
+			<td id="kuva7td2"><img id="kuva7" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva7','kuva7td1','kuva7td2')"></td>
 			<td><b>17</b></td>
-			<td><img id="kuva8" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva8')"></td>
-			<td><button onclick="muutaSummaa(7, 17)">+</button> <input type="text" class="summa-kentta" id="luku_r4_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(7, -17)">-</button></td>
+			<td id="kuva8td1"><img id="kuva8" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva8','kuva8td1','kuva8td2')"></td>
+			<td id="kuva8td2"><button onclick="muutaSummaa(7, 17)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r4_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(7, -17)">-</button></td>
 		</tr>
 		<tr>
-			<td><button onclick="muutaSummaa(8, 16)">+</button> <input type="text" class="summa-kentta" id="luku_r5_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(8, -16)">-</button></td>
-			<td><img id="kuva9" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva9')"></td>
+			<td id="kuva9td1"><button onclick="muutaSummaa(8, 16)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r5_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(8, -16)">-</button></td>
+			<td id="kuva9td2"><img id="kuva9" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva9','kuva9td1','kuva9td2')"></td>
 			<td><b>16</b></td>
-			<td><img id="kuva10" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva10')"></td>
-			<td><button onclick="muutaSummaa(9, 16)">+</button> <input type="text" class="summa-kentta" id="luku_r5_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(9, -16)">-</button></td>
+			<td id="kuva10td1"><img id="kuva10" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva10','kuva10td1','kuva10td2')"></td>
+			<td id="kuva10td2"><button onclick="muutaSummaa(9, 16)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r5_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(9, -16)">-</button></td>
 		</tr>
 		<tr>
-			<td><button onclick="muutaSummaa(10, 15)">+</button> <input type="text" class="summa-kentta" id="luku_r6_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(10, -15)">-</button></td>
-			<td><img id="kuva11" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva11')"></td>
+			<td id="kuva11td1"><button onclick="muutaSummaa(10, 15)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r6_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(10, -15)">-</button></td>
+			<td id="kuva11td2"><img id="kuva11" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva11','kuva11td1','kuva11td2')"></td>
 			<td><b>15</b></td>
-			<td><img id="kuva12" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva12')"></td>
-			<td><button onclick="muutaSummaa(11, 15)">+</button> <input type="text" class="summa-kentta" id="luku_r6_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(11, -15)">-</button></td>
+			<td id="kuva12td1"><img id="kuva12" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva12','kuva12td1','kuva12td2')"></td>
+			<td id="kuva12td2"><button onclick="muutaSummaa(11, 15)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r6_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(11, -15)">-</button></td>
 		</tr>
 		<tr>
-			<td><input type="text" class="summa-kentta" id="luku_r7_s1" oninput="laskeSumma()"></td>
-			<td><img id="kuva13" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva13')"></td>
+			<td id="kuva13td1"><input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r7_s1" oninput="laskeSumma()"></td>
+			<td id="kuva13td2"><img id="kuva13" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva13','kuva13td1','kuva13td2')"></td>
 			<td><b>II</b></td>
-			<td><img id="kuva14" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva14')"></td>
-			<td><input type="text" class="summa-kentta" id="luku_r7_s2" oninput="laskeSumma()"></td>
+			<td id="kuva14td1"><img id="kuva14" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva14','kuva14td1','kuva14td2')"></td>
+			<td id="kuva14td2"><input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r7_s2" oninput="laskeSumma()"></td>
 		</tr>
 		<tr>
-			<td><input type="text" class="summa-kentta" id="luku_r8_s1" oninput="laskeSumma()"></td>
-			<td><img id="kuva15" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva15')"></td>
+			<td id="kuva15td1"><input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r8_s1" oninput="laskeSumma()"></td>
+			<td id="kuva15td2"><img id="kuva15" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva15','kuva15td1','kuva15td2')"></td>
 			<td><b>III</b></td>
-			<td><img id="kuva16" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva16')"></td>
-			<td><input type="text" class="summa-kentta" id="luku_r8_s2" oninput="laskeSumma()"></td>
+			<td id="kuva16td1"><img id="kuva16" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva16','kuva16td1','kuva16td2')"></td>
+			<td id="kuva16td2"><input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r8_s2" oninput="laskeSumma()"></td>
 		</tr>
 		<tr>
-			<td><input type="text" class="summa-kentta" id="luku_r9_s1" oninput="laskeSumma()"></td>
-			<td><img id="kuva17" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva17')"></td>
+			<td id="kuva17td1"><input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r9_s1" oninput="laskeSumma()"></td>
+			<td id="kuva17td2"><img id="kuva17" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva17','kuva17td1','kuva17td2')"></td>
 			<td><b>&#9732;</b></td>
-			<td><img id="kuva18" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva18')"></td>
-			<td><input type="text" class="summa-kentta" id="luku_r9_s2" oninput="laskeSumma()"></td>
+			<td id="kuva18td1"><img id="kuva18" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva18','kuva18td1','kuva18td2')"></td>
+			<td id="kuva18td2"><input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r9_s2" oninput="laskeSumma()"></td>
 		</tr>
 		<tr>
-			<td><button onclick="muutaSummaa(18, 25)">+</button> <input type="text" class="summa-kentta" id="luku_r10_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(18, -25)">-</button></td>
-			<td><img id="kuva19" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva19')"></td>
+			<td id="kuva19td1"><button onclick="muutaSummaa(18, 25)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r10_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(18, -25)">-</button></td>
+			<td id="kuva19td2"><img id="kuva19" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva19','kuva19td1','kuva19td2')"></td>
 			<td><b>&#9737;</b></td>
-			<td><img id="kuva20" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva20')"></td>
-			<td><button onclick="muutaSummaa(19, 25)">+</button> <input type="text" class="summa-kentta" id="luku_r10_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(19, -25)">-</button></td>
+			<td id="kuva20td1"><img id="kuva20" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva20','kuva20td1','kuva20td2')"></td>
+			<td id="kuva20td2"><button onclick="muutaSummaa(19, 25)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r10_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(19, -25)">-</button></td>
 		</tr>
 		<tr>
-			<td><button onclick="muutaSummaa(20, 14)">+</button> <input type="text" class="summa-kentta" id="luku_r11_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(20, -14)">-</button></td>
-			<td><img id="kuva21" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva21')"></td>
+			<td id="kuva21td1"><button onclick="muutaSummaa(20, 14)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r11_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(20, -14)">-</button></td>
+			<td id="kuva21td2"><img id="kuva21" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva21','kuva21td1','kuva21td2')"></td>
 			<td><b>14</b></td>
-			<td><img id="kuva22" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva22')"></td>
-			<td><button onclick="muutaSummaa(21, 14)">+</button> <input type="text" class="summa-kentta" id="luku_r11_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(21, -14)">-</button></td>
+			<td id="kuva22td1"><img id="kuva22" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva22','kuva22td1','kuva22td2')"></td>
+			<td id="kuva22td2"><button onclick="muutaSummaa(21, 14)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r11_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(21, -14)">-</button></td>
 		</tr>
 		<tr>
-			<td><button onclick="muutaSummaa(22, 13)">+</button> <input type="text" class="summa-kentta" id="luku_r12_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(22, -13)">-</button></td>
-			<td><img id="kuva23" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva23')"></td>
+			<td id="kuva23td1"><button onclick="muutaSummaa(22, 13)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r12_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(22, -13)">-</button></td>
+			<td id="kuva23td2"><img id="kuva23" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva23','kuva23td1','kuva23td2')"></td>
 			<td><b>13</b></td>
-			<td><img id="kuva24" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva24')"></td>
-			<td><button onclick="muutaSummaa(23, 13)">+</button> <input type="text" class="summa-kentta" id="luku_r12_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(23, -13)">-</button></td>
+			<td id="kuva24td1"><img id="kuva24" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva24','kuva24td1','kuva24td2')"></td>
+			<td id="kuva24td2"><button onclick="muutaSummaa(23, 13)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r12_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(23, -13)">-</button></td>
 		</tr>
 		<tr>
-			<td><button onclick="muutaSummaa(24, 12)">+</button> <input type="text" class="summa-kentta" id="luku_r13_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(24, -12)">-</button></td>
-			<td><img id="kuva25" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva25')"></td>
+			<td id="kuva25td1"><button onclick="muutaSummaa(24, 12)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r13_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(24, -12)">-</button></td>
+			<td id="kuva25td2"><img id="kuva25" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva25','kuva25td1','kuva25td2')"></td>
 			<td><b>12</b></td>
-			<td><img id="kuva26" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva26')"></td>
-			<td><button onclick="muutaSummaa(25, 12)">+</button> <input type="text" class="summa-kentta" id="luku_r13_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(25, -12)">-</button></td>
+			<td id="kuva26td1"><img id="kuva26" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva26','kuva26td1','kuva26td2')"></td>
+			<td id="kuva26td2"><button onclick="muutaSummaa(25, 12)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r13_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(25, -12)">-</button></td>
 		</tr>
 		<tr>
-			<td><button onclick="muutaSummaa(26, 11)">+</button> <input type="text" class="summa-kentta" id="luku_r14_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(26, -11)">-</button></td>
-			<td><img id="kuva27" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva27')"></td>
+			<td id="kuva27td1"><button onclick="muutaSummaa(26, 11)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r14_s1" oninput="laskeSumma()"> <button onclick="muutaSummaa(26, -11)">-</button></td>
+			<td id="kuva27td2"><img id="kuva27" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva27','kuva27td1','kuva27td2')"></td>
 			<td><b>11</b></td>
-			<td><img id="kuva28" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva28')"></td>
-			<td><button onclick="muutaSummaa(27, 11)">+</button> <input type="text" class="summa-kentta" id="luku_r14_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(27, -11)">-</button></td>
+			<td id="kuva28td1"><img id="kuva28" src="tyhja_kuva.jpg" onclick="vaihdaKuva('kuva28','kuva28td1','kuva28td2')"></td>
+			<td id="kuva28td2"><button onclick="muutaSummaa(27, 11)">+</button> <input type="text" pattern="[0-9]*" inputmode="numeric" class="summa-kentta" id="luku_r14_s2" oninput="laskeSumma()"> <button onclick="muutaSummaa(27, -11)">-</button></td>
 		</tr>
 		<tr>
 			<td id="summa1">&#8512;   0</td>
@@ -181,17 +187,27 @@
   <script src="js/main.js"></script>
   
 <script>
-    function vaihdaKuva(kuvaId) {
+    function vaihdaKuva(kuvaId, soluId1, soluId2) {
         var kuva = document.getElementById(kuvaId);
+        var solu1 = document.getElementById(soluId1);
+		var solu2 = document.getElementById(soluId2);
 
         if (kuva.src.includes('tyhja_kuva')) {
             kuva.src = 'ensimmainen_kuva.jpg';
+			solu1.style.backgroundColor = "Tomato";
+			solu2.style.backgroundColor = "Tomato";
         } else if (kuva.src.includes('ensimmainen_kuva')) {
             kuva.src = 'toinen_kuva.jpg';
+			solu1.style.backgroundColor = "yellow";
+			solu2.style.backgroundColor = "yellow";
         } else if (kuva.src.includes('toinen_kuva')) {
             kuva.src = 'kolmas_kuva.jpg';
+			solu1.style.backgroundColor = "green";
+			solu2.style.backgroundColor = "green";
         } else {
 			kuva.src = 'tyhja_kuva.jpg';
+			solu1.style.backgroundColor = "black";
+			solu2.style.backgroundColor = "black";
 		}	
     }
 </script>
@@ -254,6 +270,24 @@ function muutaSummaa(index, muutos) {
   laskeSumma();
 }
 </script>
+
+ <script>
+    function arvoAloittaja() {
+      var nimi1 = document.getElementById("nimi1").value;
+      var nimi2 = document.getElementById("nimi2").value;
+      var taulukko = document.getElementById("taulukko");
+      var taulukonRivit = [];
+      taulukonRivit.push(nimi1);
+      taulukonRivit.push(nimi2);
+      taulukonRivit.sort(function() {
+        return 0.5 - Math.random();
+      });
+	  
+	  document.getElementById("otsikko1").innerHTML = taulukonRivit[0];
+	  document.getElementById("otsikko2").innerHTML = taulukonRivit[1];
+	  
+    }
+ </script>
   
 </body>
 </html>
